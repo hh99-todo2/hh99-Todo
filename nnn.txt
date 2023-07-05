@@ -1,0 +1,124 @@
+import React,{useState} from 'react'
+import './App.css'
+
+function App() {
+  const [user,setUser] = useState([
+    {id:0,title:'node',body:'learning',isDone:false},
+    {id:1,title:'python',body:'learning',isDone:true}
+  ])
+  const [title,setTitle] = useState('')
+  const [body,setBody] = useState('')
+
+  const titleHandler = (e)=>{    
+    setTitle(e.target.value)
+  }
+
+  const bodyHandler = (e)=>{
+    setBody(e.target.value)
+  }
+
+  const AddHandler = (e)=>{
+  e.preventDefault()
+  const addObj = {
+    id: user.length + 1,
+    title,
+    body,
+    isDone: falsea
+  }
+  setUser([...user, addObj])
+}
+
+const removeHandler =(id)=>{
+  const removeList = user.filter((user)=>user.id !== id)
+  setUser(removeList)
+}
+
+const chek =(id)=>{
+  setUser(
+    user.map((v)=>{
+      if(v.id===id){
+        return{...v, isDone: !v.isDone};
+      }
+      return v;
+    })
+  )
+}
+
+  return (
+    <div className='layout'>
+      <div className='header'>
+        <p>To do List </p>
+        <p>React</p>
+      </div>
+      <div>
+      <form  onSubmit={AddHandler} className="Form-data">
+        <div className='dataBox'>
+          <label>
+            제목 &nbsp;
+            <input
+              className="inputBox"
+              type="text"
+              value={title}
+              onChange={titleHandler}
+              
+              
+            />
+          </label>
+          </div>
+          <label>
+            내용 &nbsp;
+            <input
+              className="inputBox"
+              type="text"
+              value={body}
+              onChange={bodyHandler}
+              
+              
+            />
+          </label>
+          <button type='submit' className="addBtn">Add</button>
+        </form>
+      </div>
+
+      <div >
+      <h1 className="list-title">Working.. 🔥</h1>
+      <div>
+        {user.filter((v)=>v.isDone === false).map((v)=>{
+          return(
+            <div className='listBox' key={v.id}>
+              <div className='sqBox'>
+              <h2>{v.title}</h2>
+              <div>{v.body}</div> 
+              <br />
+              <button onClick={()=>removeHandler(v.id)}>삭제</button>
+              <button onClick={()=>chek(v.id)} >완료</button>
+              </div>
+            </div>
+          )
+        })}
+      </div>
+      <div>
+      <h1 className="list-title">Done.. 🎉</h1>
+      <div>
+      {user.filter((v)=>v.isDone === true).map((v)=>{
+          return(
+            <div className='listBox' key={v.id}>
+              <div className='sqBox'> 
+              <h2>{v.title}</h2>
+              <div>{v.body}</div> 
+              <br />
+              <button onClick={()=>removeHandler(v.id)}>삭제</button>
+              <button onClick={()=>chek(v.id)} >되돌리기</button>
+              </div>
+            </div>
+          )
+        })}
+      </div>
+
+      </div>
+      </div>
+    </div>
+  )
+}
+
+export default App
