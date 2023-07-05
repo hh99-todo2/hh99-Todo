@@ -1,0 +1,102 @@
+/* 메인 페이지(Todos.js) CSS */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
+
+* {
+    font-family: 'Noto Serif KR', serif;
+}
+
+.layout {
+    width: 1000px;
+    height: 100vh;
+    margin: 10px auto 0 auto;
+    background-color: lightgray;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+
+    font-size: 20px;
+    font-weight: 800;
+
+    background-color: rgb(9, 9, 173);
+}
+
+.header > p {
+    margin: 10px;
+    color: white;
+}
+
+.Form-data {
+    height: 80px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    border-bottom: 1px solid black;
+}
+
+.dataBox {
+    display: flex;
+    flex-direction: row;
+}
+
+.inputBox {
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0px 1px 3px 1px;
+
+    padding: 10px 15px;
+}
+
+.addBtn {
+    box-shadow: 1px 1px 1px 0px;
+    padding: 7px 25px;
+    margin-right: -70px;
+    background-color: gainsboro;
+}
+
+.list-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.list-title {
+    margin-left: 20px;
+}
+
+.listBox {
+    display: flex;
+    gap: 20px;
+
+    border: 1px solid black;
+    box-shadow: 0px 1px 2px 1px;
+    border-radius: 3px;
+
+    width: 230px;
+    height: 180px;
+}
+
+.sqBox {
+    padding : 10px;
+
+    
+    width: 230px;
+    height: 180px;
+    
+}
+
+.button-set {
+    display: flex;
+    gap: 10px;
+    margin-top: 24px;
+}
